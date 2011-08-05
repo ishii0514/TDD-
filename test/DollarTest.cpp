@@ -12,6 +12,8 @@
 
 
 TEST(DollarTest, TEST001) {
+    //TODO:assertEquals代替を考える
+    //TODO:インスタンスの生成の仕方、ポインタ利用の方針
     Dollar five(5);
     
     Dollar* product = five.times(2);
@@ -23,6 +25,7 @@ TEST(DollarTest, TEST001) {
     delete  product;
 }
 TEST(DollarTest,Equality){
+    //TODO:インスタンスの生成の仕方
     Dollar five(5);
     Dollar five2(5);
     Dollar six(6);
