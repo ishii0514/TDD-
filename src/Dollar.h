@@ -14,7 +14,10 @@ public:
     Dollar(int amount);
     ~Dollar(){}
     
-    void times(int multiplier);
+    Dollar* times(int multiplier);
+    
+    bool
+    equals(const Dollar& dollar);
     
     int m_amount;
 };

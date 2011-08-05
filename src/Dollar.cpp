@@ -13,8 +13,13 @@ Dollar::Dollar(int amount)
     m_amount = amount;
 }
 
-void
+Dollar*
 Dollar::times(int multiplier)
 {
-    m_amount *= multiplier;
+    Dollar* product = new Dollar(m_amount *multiplier);
+    return product;
+}
+bool
+Dollar::equals(const Dollar& dollar){
+    return m_amount == dollar.m_amount;
 }

@@ -13,7 +13,20 @@
 
 TEST(DollarTest, TEST001) {
     Dollar five(5);
-    five.times(2);
-    EXPECT_EQ(10, five.m_amount);
+    
+    Dollar* product = five.times(2);
+    EXPECT_EQ(10, product->m_amount);
+    delete  product;
 
+    product = five.times(3);
+    EXPECT_EQ(15, product->m_amount);
+    delete  product;
+}
+TEST(DollarTest,Equality){
+    Dollar five(5);
+    Dollar five2(5);
+    Dollar six(6);
+    EXPECT_TRUE(five.equals(five2));
+    EXPECT_FALSE(five.equals(six));
+    
 }
