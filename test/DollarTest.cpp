@@ -11,25 +11,19 @@
 #include "gtest/gtest.h"
 
 
-TEST(DollarTest, TEST001) {
-    //TODO:assertEquals代替を考える
-    //TODO:インスタンスの生成の仕方、ポインタ利用の方針
-    Dollar five(5);
+TEST(DollarTest, MultiPlication) {
     
-    Dollar* product = five.times(2);
-    EXPECT_EQ(10, product->m_amount);
-    delete  product;
-
-    product = five.times(3);
-    EXPECT_EQ(15, product->m_amount);
-    delete  product;
+    Dollar five(5);
+    EXPECT_EQ(Dollar(10),five.times(2));
+    EXPECT_EQ(Dollar(15),five.times(3));
 }
 TEST(DollarTest,Equality){
-    //TODO:インスタンスの生成の仕方
-    Dollar five(5);
-    Dollar five2(5);
-    Dollar six(6);
-    EXPECT_TRUE(five.equals(five2));
-    EXPECT_FALSE(five.equals(six));
+    EXPECT_TRUE(Dollar(5).equals(Dollar(5)));
+    EXPECT_FALSE(Dollar(5).equals(Dollar(6)));
+    
+}
+TEST(DollarTest,EqualityOperater){
+    EXPECT_TRUE(Dollar(5)==Dollar(5));
+    EXPECT_FALSE(Dollar(5)==Dollar(6));
     
 }

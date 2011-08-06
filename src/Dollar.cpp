@@ -12,14 +12,19 @@ Dollar::Dollar(int amount)
 {
     m_amount = amount;
 }
+//コピーコンストラクタ
+Dollar::Dollar(const Dollar& dollar)
+{
+    m_amount = dollar.m_amount;
+}
 
-Dollar*
+Dollar
 Dollar::times(int multiplier)
 {
-    Dollar* product = new Dollar(m_amount *multiplier);
-    return product;
+    return Dollar(m_amount * multiplier);
 }
 bool
-Dollar::equals(const Dollar& dollar){
+Dollar::equals(const Dollar& dollar)
+{
     return m_amount == dollar.m_amount;
 }

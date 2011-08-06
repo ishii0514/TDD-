@@ -12,13 +12,20 @@
 class Dollar{
 public:
     Dollar(int amount);
+    Dollar(const Dollar& dollar);
     ~Dollar(){}
     
-    Dollar* times(int multiplier);
+    bool operator==(const Dollar& dollar) const
+    {
+        return m_amount == dollar.m_amount;
+    }
+    
+    Dollar times(int multiplier);
     
     bool
     equals(const Dollar& dollar);
     
+private:
     int m_amount;
 };
 
