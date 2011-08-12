@@ -17,8 +17,6 @@ public:
     Dollar(const Dollar& dollar);
     ~Dollar(){}
     
-
-    
     Dollar times(int multiplier);
     
 };

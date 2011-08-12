@@ -8,9 +8,3 @@
 
 #include "Money.h"
 
-
-bool
-Money::equals(const Money& money)
-{
-    return m_amount == money.m_amount && (typeid(*this) == typeid(money));
-}

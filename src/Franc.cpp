@@ -11,16 +11,16 @@
 
 Franc::Franc(int amount)
 {
-    m_amount = amount;
+    this->amount = amount;
 }
 //コピーコンストラクタ
 Franc::Franc(const Franc& franc)
 {
-    m_amount = franc.m_amount;
+    this->amount = franc.amount;
 }
 
 Franc
 Franc::times(int multiplier)
 {
-    return Franc(m_amount * multiplier);
+    return Franc(this->amount * multiplier);
 }

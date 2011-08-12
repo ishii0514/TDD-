@@ -10,16 +10,16 @@
 
 Dollar::Dollar(int amount)
 {
-    m_amount = amount;
+    this->amount = amount;
 }
 //コピーコンストラクタ
 Dollar::Dollar(const Dollar& dollar)
 {
-    m_amount = dollar.m_amount;
+    this->amount = dollar.amount;
 }
 
 Dollar
 Dollar::times(int multiplier)
 {
-    return Dollar(m_amount * multiplier);
+    return Dollar(this->amount * multiplier);
 }
