@@ -9,12 +9,13 @@
 #ifndef TDD__Money_h
 #define TDD__Money_h
 
+#include<typeinfo>
 class Money
 {
 public:
     bool operator==(const Money& money) const
     {
-        return m_amount == money.m_amount;
+        return (m_amount == money.m_amount) && (typeid(*this) == typeid(money));
     }
     bool
     equals(const Money& money);

@@ -12,5 +12,5 @@
 bool
 Money::equals(const Money& money)
 {
-    return m_amount == money.m_amount;
+    return m_amount == money.m_amount && (typeid(*this) == typeid(money));
 }

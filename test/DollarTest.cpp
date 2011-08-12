@@ -21,6 +21,10 @@ TEST(DollarTest, MultiPlication) {
 TEST(DollarTest,Equality){
     EXPECT_TRUE(Dollar(5).equals(Dollar(5)));
     EXPECT_FALSE(Dollar(5).equals(Dollar(6)));
+    EXPECT_TRUE(Franc(5).equals(Franc(5)));
+    EXPECT_FALSE(Franc(5).equals(Franc(6)));
+    
+    EXPECT_FALSE(Franc(5).equals(Dollar(5)));
     
 }
 TEST(DollarTest,EqualityOperater){
@@ -28,6 +32,8 @@ TEST(DollarTest,EqualityOperater){
     EXPECT_FALSE(Dollar(5)==Dollar(6));
     EXPECT_TRUE(Franc(5)==Franc(5));
     EXPECT_FALSE(Franc(5)==Franc(6));
+    
+    EXPECT_FALSE(Franc(5)==Dollar(5));
     
 }
 TEST(FrancTest, MultiPlication) {
