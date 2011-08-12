@@ -24,8 +24,3 @@ Franc::times(int multiplier)
 {
     return Franc(m_amount * multiplier);
 }
-bool
-Franc::equals(const Franc& franc)
-{
-    return m_amount == franc.m_amount;
-}

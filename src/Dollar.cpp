@@ -23,8 +23,3 @@ Dollar::times(int multiplier)
 {
     return Dollar(m_amount * multiplier);
 }
-bool
-Dollar::equals(const Dollar& dollar)
-{
-    return m_amount == dollar.m_amount;
-}
