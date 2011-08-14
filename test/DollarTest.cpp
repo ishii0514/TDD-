@@ -6,7 +6,6 @@
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
-#include <limits.h>
 #include "../src/Dollar.h"
 #include "../src/Franc.h"
 #include "gtest/gtest.h"
@@ -14,9 +13,12 @@
 
 TEST(DollarTest, MultiPlication) {
     
+
+    
     Dollar five(5);
     EXPECT_EQ(Dollar(10),five.times(2));
     EXPECT_EQ(Dollar(15),five.times(3));
+
 }
 
 TEST(DollarTest,Equality){
