@@ -14,7 +14,11 @@
 class Money
 {
 public:
-    virtual bool operator==(const Money& money) const
+    Money(){}
+    virtual ~Money(){}
+    
+    
+    bool operator==(const Money& money) const
     {
         return (this->amount == money.amount) && (typeid(*this) == typeid(money));
     }
