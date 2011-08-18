@@ -18,8 +18,8 @@ Dollar::Dollar(const Dollar& dollar)
     this->amount = dollar.amount;
 }
 
-Dollar
+Money*
 Dollar::times(int multiplier)
 {
-    return Dollar(this->amount * multiplier);
+    return new Dollar(this->amount * multiplier);
 }

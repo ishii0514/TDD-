@@ -11,17 +11,24 @@
 
 #include<typeinfo>
 
+class Dollar;
+
 class Money
 {
 public:
     Money(){}
     virtual ~Money(){}
     
-    
     bool operator==(const Money& money) const
     {
         return (this->amount == money.amount) && (typeid(*this) == typeid(money));
     }
+    
+    virtual Money* times(int amount) =0;
+    
+    static Money* dollar(int amount);
+    static Money* franc(int amount);
+    
 protected:    
     int amount;
 };

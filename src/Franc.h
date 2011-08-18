@@ -17,7 +17,7 @@ public:
     Franc(const Franc& dollar);
     ~Franc(){}
     
-    Franc times(int multiplier);
+    Money* times(int multiplier);
     
 };
 

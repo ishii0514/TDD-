@@ -19,8 +19,8 @@ Franc::Franc(const Franc& franc)
     this->amount = franc.amount;
 }
 
-Franc
+Money*
 Franc::times(int multiplier)
 {
-    return Franc(this->amount * multiplier);
+    return new Franc(this->amount * multiplier);
 }
