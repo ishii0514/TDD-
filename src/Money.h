@@ -25,7 +25,7 @@ public:
         return (this->amount == money.amount) && (typeid(*this) == typeid(money));
     }
     
-    virtual Money* times(int amount) =0;
+    virtual Money* times(int amount);
     
     std::string currency();
     

@@ -15,5 +15,5 @@ Franc::Franc(int amount,const std::string& currency)
 Money*
 Franc::times(int multiplier)
 {
-    return new Franc(this->amount * multiplier,this->m_currency);
+    return new Money(this->amount * multiplier,this->m_currency);
 }

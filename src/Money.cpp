@@ -30,3 +30,9 @@ std::string Money::currency()
 {
     return m_currency;
 }
+
+Money* 
+Money::times(int amount)
+{
+    return NULL;
+}
