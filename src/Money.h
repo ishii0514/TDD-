@@ -22,10 +22,10 @@ public:
     
     bool operator==(const Money& money) const
     {
-        return (this->amount == money.amount) && (typeid(*this) == typeid(money));
+        return (this->amount == money.amount) && (this->m_currency == money.m_currency);
     }
     
-    virtual Money* times(int amount);
+    virtual Money* times(int multiplier);
     
     std::string currency();
     

@@ -31,8 +31,9 @@ std::string Money::currency()
     return m_currency;
 }
 
-Money* 
-Money::times(int amount)
+
+Money*
+Money::times(int multiplier)
 {
-    return NULL;
+    return new Money(this->amount * multiplier,this->m_currency);
 }

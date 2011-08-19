@@ -13,8 +13,4 @@ Dollar::Dollar(int amount,const std::string& currency)
 {
 }
 
-Money*
-Dollar::times(int multiplier)
-{
-    return new Dollar(this->amount * multiplier,this->m_currency);
-}
+

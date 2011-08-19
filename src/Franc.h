@@ -17,8 +17,6 @@ public:
     
     ~Franc(){}
     
-    Money* times(int multiplier);
-    
 };
 
 #endif

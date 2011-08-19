@@ -16,7 +16,6 @@ public:
     Dollar(int amount,const std::string& currency);
     ~Dollar(){}
     
-    Money* times(int multiplier); 
 };
 
 

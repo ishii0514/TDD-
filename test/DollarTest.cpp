@@ -70,6 +70,16 @@ TEST(DollarTest,Equality){
     delete six_franc;
     
 }
+TEST(MoneyTest,DifferentClassEquality){
+    Money* cmp_ten = new Money(10,"CHF");
+    Money* ten = new Franc(10,"CHF");
+    
+    EXPECT_TRUE(*cmp_ten == *ten);
+    
+    delete cmp_ten;
+    delete ten;
+    
+}
 TEST(MoneyTest, Currency){
     Money* one_d = Money::dollar(1);
     Money* one_f = Money::franc(1);
@@ -84,14 +94,14 @@ TEST(MoneyTest, Currency){
 }
 TEST(MoneyTest, TempObject) {
     
-    const Money& six_dol = Dollar(6,"");
-    EXPECT_TRUE(six_dol == Dollar(6,""));
-    EXPECT_FALSE(six_dol == Dollar(5,""));
-    EXPECT_FALSE(six_dol == Franc(6,""));
+    const Money& six_dol = Dollar(6,"USD");
+    EXPECT_TRUE(six_dol == Dollar(6,"USD"));
+    EXPECT_FALSE(six_dol == Dollar(5,"USD"));
+    EXPECT_FALSE(six_dol == Franc(6,"CHF"));
     
-    const Money& six_fla = Franc(6,"");
-    EXPECT_TRUE(six_fla == Franc(6,""));
-    EXPECT_FALSE(six_fla == Franc(5,""));
-    EXPECT_FALSE(six_fla == Dollar(6,""));
+    const Money& six_fla = Franc(6,"CHF");
+    EXPECT_TRUE(six_fla == Franc(6,"CHF"));
+    EXPECT_FALSE(six_fla == Franc(5,"CHF"));
+    EXPECT_FALSE(six_fla == Dollar(6,"USD"));
     
 }
