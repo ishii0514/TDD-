@@ -84,8 +84,8 @@ TEST(MoneyTest, Currency){
     Money* one_d = Money::dollar(1);
     Money* one_f = Money::franc(1);
 
-    EXPECT_EQ("USD",one_d->currency());
-    EXPECT_EQ("CHF",one_f->currency());
+    EXPECT_EQ("USD",one_d->getCurrency());
+    EXPECT_EQ("CHF",one_f->getCurrency());
     
     delete one_d;
     delete one_f;

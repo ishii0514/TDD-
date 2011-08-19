@@ -13,7 +13,7 @@
 Money::Money(int amount,const std::string& currency)
 {
     this->amount = amount;
-    this->m_currency = currency;
+    this->currency = currency;
 }
 
 Money*
@@ -26,14 +26,14 @@ Money::franc(int amount)
 {
     return new Franc(amount,"CHF");
 }
-std::string Money::currency()
+std::string Money::getCurrency()
 {
-    return m_currency;
+    return currency;
 }
 
 
 Money*
 Money::times(int multiplier)
 {
-    return new Money(this->amount * multiplier,this->m_currency);
+    return new Money(this->amount * multiplier,this->currency);
 }

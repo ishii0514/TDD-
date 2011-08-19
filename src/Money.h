@@ -9,10 +9,7 @@
 #ifndef TDD__Money_h
 #define TDD__Money_h
 
-#include<typeinfo>
 #include<iostream>
-
-class Dollar;
 
 class Money
 {
@@ -22,18 +19,18 @@ public:
     
     bool operator==(const Money& money) const
     {
-        return (this->amount == money.amount) && (this->m_currency == money.m_currency);
+        return (this->amount == money.amount) && (this->currency == money.currency);
     }
     
     virtual Money* times(int multiplier);
     
-    std::string currency();
+    std::string getCurrency();
     
     static Money* dollar(int amount);
     static Money* franc(int amount);
 protected:    
     int amount;
-    std::string m_currency;
+    std::string currency;
 };
 
 #endif
