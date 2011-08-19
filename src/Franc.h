@@ -13,7 +13,7 @@
 
 class Franc : public Money{
 public:
-    Franc(int amount);
+    Franc(int amount,const std::string& currency);
     Franc(const Franc& dollar);
     ~Franc(){}
     

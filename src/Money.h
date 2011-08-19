@@ -10,6 +10,7 @@
 #define TDD__Money_h
 
 #include<typeinfo>
+#include<iostream>
 
 class Dollar;
 
@@ -26,11 +27,13 @@ public:
     
     virtual Money* times(int amount) =0;
     
+    std::string currency();
+    
     static Money* dollar(int amount);
     static Money* franc(int amount);
-    
 protected:    
     int amount;
+    std::string m_currency;
 };
 
 #endif

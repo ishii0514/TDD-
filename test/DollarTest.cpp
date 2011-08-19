@@ -70,17 +70,28 @@ TEST(DollarTest,Equality){
     delete six_franc;
     
 }
+TEST(MoneyTest, Currency){
+    Money* one_d = Money::dollar(1);
+    Money* one_f = Money::franc(1);
 
+    EXPECT_EQ("USD",one_d->currency());
+    EXPECT_EQ("CHF",one_f->currency());
+    
+    delete one_d;
+    delete one_f;
+    
+    
+}
 TEST(MoneyTest, TempObject) {
     
-    const Money& six_dol = Dollar(6);
-    EXPECT_TRUE(six_dol == Dollar(6));
-    EXPECT_FALSE(six_dol == Dollar(5));
-    EXPECT_FALSE(six_dol == Franc(6));
+    const Money& six_dol = Dollar(6,"");
+    EXPECT_TRUE(six_dol == Dollar(6,""));
+    EXPECT_FALSE(six_dol == Dollar(5,""));
+    EXPECT_FALSE(six_dol == Franc(6,""));
     
-    const Money& six_fla = Franc(6);
-    EXPECT_TRUE(six_fla == Franc(6));
-    EXPECT_FALSE(six_fla == Franc(5));
-    EXPECT_FALSE(six_fla == Dollar(6));
+    const Money& six_fla = Franc(6,"");
+    EXPECT_TRUE(six_fla == Franc(6,""));
+    EXPECT_FALSE(six_fla == Franc(5,""));
+    EXPECT_FALSE(six_fla == Dollar(6,""));
     
 }

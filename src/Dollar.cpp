@@ -8,9 +8,10 @@
 
 #include "Dollar.h"
 
-Dollar::Dollar(int amount)
+Dollar::Dollar(int amount,const std::string& currency)
 {
     this->amount = amount;
+    this->m_currency = currency;
 }
 //コピーコンストラクタ
 Dollar::Dollar(const Dollar& dollar)
@@ -21,5 +22,5 @@ Dollar::Dollar(const Dollar& dollar)
 Money*
 Dollar::times(int multiplier)
 {
-    return new Dollar(this->amount * multiplier);
+    return Money::dollar(this->amount * multiplier);
 }
