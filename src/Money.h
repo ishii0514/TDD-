@@ -17,7 +17,7 @@ class Dollar;
 class Money
 {
 public:
-    Money(){}
+    Money(int amount,const std::string& currency);
     virtual ~Money(){}
     
     bool operator==(const Money& money) const

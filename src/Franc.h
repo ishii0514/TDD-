@@ -14,7 +14,7 @@
 class Franc : public Money{
 public:
     Franc(int amount,const std::string& currency);
-    Franc(const Franc& dollar);
+    
     ~Franc(){}
     
     Money* times(int multiplier);

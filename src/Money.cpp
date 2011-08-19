@@ -10,6 +10,11 @@
 #include "Dollar.h"
 #include "Franc.h"
 
+Money::Money(int amount,const std::string& currency)
+{
+    this->amount = amount;
+    this->m_currency = currency;
+}
 
 Money*
 Money::dollar(int amount)

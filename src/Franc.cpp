@@ -8,17 +8,9 @@
 
 #include "Franc.h"
 
-
 Franc::Franc(int amount,const std::string& currency)
-{
-    this->amount = amount;
-    this->m_currency = currency;
-}
-//コピーコンストラクタ
-Franc::Franc(const Franc& franc)
-{
-    this->amount = franc.amount;
-}
+:Money(amount,currency)
+{}
 
 Money*
 Franc::times(int multiplier)

@@ -14,7 +14,6 @@
 class Dollar :public Money{
 public:
     Dollar(int amount,const std::string& currency);
-    Dollar(const Dollar& dollar);
     ~Dollar(){}
     
     Money* times(int multiplier); 

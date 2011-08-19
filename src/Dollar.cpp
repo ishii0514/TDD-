@@ -9,14 +9,8 @@
 #include "Dollar.h"
 
 Dollar::Dollar(int amount,const std::string& currency)
+:Money(amount,currency)
 {
-    this->amount = amount;
-    this->m_currency = currency;
-}
-//コピーコンストラクタ
-Dollar::Dollar(const Dollar& dollar)
-{
-    this->amount = dollar.amount;
 }
 
 Money*
