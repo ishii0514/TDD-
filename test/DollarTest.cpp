@@ -92,4 +92,5 @@ TEST(MoneyTest, SimpleAddition) {
     delete five;
     delete ten;
     delete sum;
+    delete reduced;
 }
