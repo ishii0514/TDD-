@@ -35,3 +35,9 @@ Money::times(int multiplier)
 {
     return new Money(this->amount * multiplier,this->currency);
 }
+
+Expression*
+Money::plus(Money* added)
+{
+    return new Money(this->amount + added->amount,this->currency);
+}

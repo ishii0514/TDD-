@@ -10,8 +10,10 @@
 #define TDD__Money_h
 
 #include<iostream>
+#include "Expression.h"
 
-class Money
+
+class Money :public Expression
 {
 public:
     Money(int amount,const std::string& currency);
@@ -28,6 +30,10 @@ public:
     
     static Money* dollar(int amount);
     static Money* franc(int amount);
+    
+    Expression*
+    plus(Money* added);
+    
 protected:    
     int amount;
     std::string currency;

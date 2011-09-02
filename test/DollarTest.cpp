@@ -7,6 +7,8 @@
 //
 
 #include "../src/Money.h"
+#include "../src/Bank.h"
+#include "../src/Expression.h"
 #include "gtest/gtest.h"
 
 
@@ -60,6 +62,8 @@ TEST(MoneyTest, Currency){
     
     
 }
+
+
 TEST(MoneyTest, TempObject) {
     
     const Money& six_dol = Money(6,"USD");
@@ -72,4 +76,20 @@ TEST(MoneyTest, TempObject) {
     EXPECT_FALSE(six_fla == Money(5,"CHF"));
     EXPECT_FALSE(six_fla == Money(6,"USD"));
     
+}
+
+TEST(MoneyTest, SimpleAddition) {
+    Money* five = Money::dollar(5);
+    Money* ten = Money::dollar(10);
+    
+    Expression* sum = five->plus(five);
+    
+    
+    Bank* bank = new Bank();
+    Money* reduced = bank->reduce(sum,"USD");
+    EXPECT_EQ(*ten,*reduced);
+    
+    delete five;
+    delete ten;
+    delete sum;
 }
