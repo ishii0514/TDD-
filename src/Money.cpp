@@ -7,6 +7,7 @@
 //
 
 #include "Money.h"
+#include "Sum.h"
 
 Money::Money(int amount,const std::string& currency)
 {
@@ -37,7 +38,7 @@ Money::times(int multiplier)
 }
 
 Expression*
-Money::plus(Money* added)
+Money::plus(Money* addend)
 {
-    return new Money(this->amount + added->amount,this->currency);
+    return new Sum(this,addend);
 }

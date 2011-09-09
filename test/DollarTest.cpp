@@ -9,6 +9,7 @@
 #include "../src/Money.h"
 #include "../src/Bank.h"
 #include "../src/Expression.h"
+#include "../src/Sum.h"
 #include "gtest/gtest.h"
 
 
@@ -93,4 +94,51 @@ TEST(MoneyTest, SimpleAddition) {
     delete ten;
     delete sum;
     delete reduced;
+}
+TEST(MoneyTest, PlusReturnSum) {
+    Money* five = Money::dollar(5);
+    Expression* result = five->plus(five);
+    Sum* sum = (Sum*)result;
+    EXPECT_EQ(*five,*(sum->augend));
+    EXPECT_EQ(*five,*(sum->addend));
+    
+    delete five;
+    delete result;
+    
+}
+
+TEST(MoneyTest, ReduceSum) {
+    Money* three = Money::dollar(3);
+    Money* four = Money::dollar(4);
+    Money* seven = Money::dollar(7);
+    
+    Expression* sum = new Sum(three,four);
+    Bank* bank= new Bank;
+    
+    Money* result = bank->reduce(sum,"USD");
+    
+    
+    EXPECT_EQ(*seven,*result);
+    
+    
+    delete three;
+    delete four;
+    delete seven;
+    delete sum;
+    delete bank;
+    delete result;
+    
+}
+TEST(MoneyTest, ReduceMoney) {
+    Money* one =Money::dollar(1);
+    
+    Bank* bank = new Bank;
+    Money* result = bank->reduce(one,"USD");
+    
+    EXPECT_EQ(*one,*result);
+    
+    delete one;
+    delete bank;
+    delete result;
+                                 
 }

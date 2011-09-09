@@ -7,10 +7,16 @@
 //
 
 #include <iostream>
+#include <typeinfo>
 #include "Bank.h"
+#include "Sum.h"
 
 Money* 
 Bank::reduce(Expression* source,std::string to)
 {
-    return Money::dollar(10);
+    if(typeid(source) == typeid(Money*){
+        return (Money*)source;
+    }
+    Sum* sum= (Sum*)source;
+    return sum->reduce(to);
 }

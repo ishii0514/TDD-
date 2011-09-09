@@ -33,9 +33,9 @@ public:
     
     Expression*
     plus(Money* added);
-    
-protected:    
+        
     int amount;
+protected:    
     std::string currency;
 };
 
