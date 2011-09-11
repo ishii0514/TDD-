@@ -12,13 +12,13 @@
 #include "Expression.h"
 #include "Money.h"
 
-//class Money;
-
 class Sum : public Expression {
 public:
     Sum(Money* augend,Money* addend);
+    ~Sum();
     
-    Money* reduce(std::string to);
+    Money*
+    reduce(std::string to);
     
     Money* augend;
     Money* addend;

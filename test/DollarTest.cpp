@@ -113,7 +113,7 @@ TEST(MoneyTest, ReduceSum) {
     Money* seven = Money::dollar(7);
     
     Expression* sum = new Sum(three,four);
-    Bank* bank= new Bank;
+    Bank* bank= new Bank();
     
     Money* result = bank->reduce(sum,"USD");
     
@@ -132,7 +132,7 @@ TEST(MoneyTest, ReduceSum) {
 TEST(MoneyTest, ReduceMoney) {
     Money* one =Money::dollar(1);
     
-    Bank* bank = new Bank;
+    Bank* bank = new Bank();
     Money* result = bank->reduce(one,"USD");
     
     EXPECT_EQ(*one,*result);

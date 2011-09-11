@@ -9,9 +9,13 @@
 #ifndef TDD__Expression_h
 #define TDD__Expression_h
 
+class Money;
+
 class Expression
 {
-    ;   
+public:
+    virtual Money*
+    reduce(std::string to) =0;
 };
 
 #endif

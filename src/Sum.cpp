@@ -11,9 +11,16 @@
 
 Sum::Sum(Money* augend,Money* addend)
 {
-    this->augend = augend;
-    this->addend = addend;
+    this->augend = new Money(augend->amount,augend->currency);
+    this->addend = new Money(addend->amount,addend->currency);
 }
+
+Sum::~Sum()
+{
+    delete augend;
+    delete addend;
+}
+
 
 Money* 
 Sum::reduce(std::string to)

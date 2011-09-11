@@ -42,3 +42,9 @@ Money::plus(Money* addend)
 {
     return new Sum(this,addend);
 }
+
+Money*
+Money::reduce(std::string to)
+{
+    return new Money(this->amount,this->currency);
+}

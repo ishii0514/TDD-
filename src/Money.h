@@ -33,10 +33,13 @@ public:
     
     Expression*
     plus(Money* added);
+    
+    Money*
+    reduce(std::string to);
         
     int amount;
-protected:    
     std::string currency;
+protected:
 };
 
 #endif

@@ -14,9 +14,5 @@
 Money* 
 Bank::reduce(Expression* source,std::string to)
 {
-    if(typeid(source) == typeid(Money*){
-        return (Money*)source;
-    }
-    Sum* sum= (Sum*)source;
-    return sum->reduce(to);
+    return source->reduce(to);
 }
