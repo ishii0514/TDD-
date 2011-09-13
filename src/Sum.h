@@ -10,7 +10,9 @@
 #define TDD__Sum_h
 
 #include "Expression.h"
-#include "Money.h"
+
+class Money;
+class Bank;
 
 class Sum : public Expression {
 public:
@@ -18,7 +20,7 @@ public:
     ~Sum();
     
     Money*
-    reduce(std::string to);
+    reduce(Bank* bank,std::string to);
     
     Money* augend;
     Money* addend;

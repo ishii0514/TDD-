@@ -8,6 +8,8 @@
 
 #include <iostream>
 #include "Sum.h"
+#include "Money.h"
+#include "Bank.h"
 
 Sum::Sum(Money* augend,Money* addend)
 {
@@ -23,7 +25,7 @@ Sum::~Sum()
 
 
 Money* 
-Sum::reduce(std::string to)
+Sum::reduce(Bank* bank,std::string to)
 {
     int amount = augend->amount + addend->amount;
     return new Money(amount,to);

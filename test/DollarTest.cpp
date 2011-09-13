@@ -142,3 +142,24 @@ TEST(MoneyTest, ReduceMoney) {
     delete result;
                                  
 }
+TEST(MoneyTest, ReduceMoneyDifferentCurrency) {
+    Money* two = Money::franc(2);
+    Money* one = Money::dollar(1);
+    
+    Bank* bank = new Bank();
+    bank->addRate("CHF","USD",2);
+    Money* result = bank->reduce(two,"USD");
+    
+    EXPECT_EQ(*one,*result);
+    
+    delete one;
+    delete two;
+    delete bank;
+    delete result;
+                                
+}
+TEST(MoneyTest,IdentityRate)
+{
+    Bank bank;
+    EXPECT_EQ(1,bank.rate("USD","USD"));
+}

@@ -10,12 +10,13 @@
 #define TDD__Expression_h
 
 class Money;
+class Bank; 
 
 class Expression
 {
 public:
     virtual Money*
-    reduce(std::string to) =0;
+    reduce(Bank* bank, std::string to) =0;
 };
 
 #endif

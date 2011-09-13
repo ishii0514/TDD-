@@ -12,6 +12,7 @@
 #include<iostream>
 #include "Expression.h"
 
+class Bank;
 
 class Money :public Expression
 {
@@ -35,7 +36,7 @@ public:
     plus(Money* added);
     
     Money*
-    reduce(std::string to);
+    reduce(Bank* bank,std::string to);
         
     int amount;
     std::string currency;

@@ -6,8 +6,10 @@
 //  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
+
 #include "Money.h"
 #include "Sum.h"
+#include "Bank.h"
 
 Money::Money(int amount,const std::string& currency)
 {
@@ -44,7 +46,8 @@ Money::plus(Money* addend)
 }
 
 Money*
-Money::reduce(std::string to)
+Money::reduce(Bank* bank,std::string to)
 {
-    return new Money(this->amount,this->currency);
+    int rate = bank->rate(currency,to);
+    return new Money(this->amount/rate,to);
 }
