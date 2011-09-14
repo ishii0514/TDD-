@@ -17,6 +17,7 @@ Money::Money(int amount,const std::string& currency)
     this->currency = currency;
 }
 
+
 Money*
 Money::dollar(int amount)
 {

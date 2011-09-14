@@ -163,3 +163,25 @@ TEST(MoneyTest,IdentityRate)
     Bank bank;
     EXPECT_EQ(1,bank.rate("USD","USD"));
 }
+TEST(MoneyTest,MixedAddition)
+{
+    Money* ten = Money::dollar(10);
+    
+    Money* fiveBucks = Money::dollar(5);
+    Money* tenFrancs = Money::franc(10);
+    
+    Bank bank;
+    bank.addRate("CHF","USD",2);
+    
+    Expression* sum = fiveBucks->plus(tenFrancs);
+    Money* result = bank.reduce(sum,"USD");
+    
+    EXPECT_EQ(*ten,*result);
+    
+    delete sum;
+    delete ten;
+    delete result;
+    delete fiveBucks;
+    delete tenFrancs;
+
+}

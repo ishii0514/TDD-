@@ -16,14 +16,14 @@ class Bank;
 
 class Sum : public Expression {
 public:
-    Sum(Money* augend,Money* addend);
+    Sum(Expression* augend,Expression* addend);
     ~Sum();
     
     Money*
     reduce(Bank* bank,std::string to);
     
-    Money* augend;
-    Money* addend;
+    Expression* augend;
+    Expression* addend;
     
 };
 

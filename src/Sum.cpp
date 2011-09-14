@@ -11,11 +11,12 @@
 #include "Money.h"
 #include "Bank.h"
 
-Sum::Sum(Money* augend,Money* addend)
+Sum::Sum(Expression* augend,Expression* addend)
 {
     this->augend = new Money(augend->amount,augend->currency);
     this->addend = new Money(addend->amount,addend->currency);
 }
+
 
 Sum::~Sum()
 {
@@ -27,6 +28,12 @@ Sum::~Sum()
 Money* 
 Sum::reduce(Bank* bank,std::string to)
 {
-    int amount = augend->amount + addend->amount;
+    Money* augend_reduce= augend->reduce(bank,to);
+    Money* addend_reduce= addend->reduce(bank,to);
+    
+    int amount = augend_reduce->amount + addend_reduce->amount;
+    delete augend_reduce;
+    delete addend_reduce;
+    
     return new Money(amount,to);
 }
