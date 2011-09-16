@@ -22,6 +22,12 @@ public:
     Money*
     reduce(Bank* bank,std::string to);
     
+    Expression*
+    duplicate();
+    
+    Expression*
+    plus(Expression* addend);
+    
     Expression* augend;
     Expression* addend;
     

@@ -34,14 +34,14 @@ std::string Money::getCurrency()
 }
 
 
-Money*
+Expression*
 Money::times(int multiplier)
 {
     return new Money(this->amount * multiplier,this->currency);
 }
 
 Expression*
-Money::plus(Money* addend)
+Money::plus(Expression* addend)
 {
     return new Sum(this,addend);
 }
@@ -51,4 +51,9 @@ Money::reduce(Bank* bank,std::string to)
 {
     int rate = bank->rate(currency,to);
     return new Money(this->amount/rate,to);
+}
+Expression*
+Money::duplicate()
+{
+    return new Money(this->amount,this->currency);
 }

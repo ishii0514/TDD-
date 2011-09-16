@@ -16,13 +16,13 @@
 TEST(DollarTest, MultiPlication) {
     
     Money* five = Money::dollar(5);
-    Money* ten = five->times(2);
-    Money* fifteen = five->times(3);
+    Expression* ten = five->times(2);
+    Expression* fifteen = five->times(3);
     Money* cmp_ten = Money::dollar(10);
     Money* cmp_fifteen = Money::dollar(15);
     
-    EXPECT_EQ(*cmp_ten,*ten);
-    EXPECT_EQ(*cmp_fifteen,*fifteen);
+    EXPECT_EQ(*cmp_ten,*(Money*)ten);
+    EXPECT_EQ(*cmp_fifteen,*(Money*)fifteen);
     
     delete cmp_ten;
     delete cmp_fifteen;
@@ -99,8 +99,8 @@ TEST(MoneyTest, PlusReturnSum) {
     Money* five = Money::dollar(5);
     Expression* result = five->plus(five);
     Sum* sum = (Sum*)result;
-    EXPECT_EQ(*five,*(sum->augend));
-    EXPECT_EQ(*five,*(sum->addend));
+    EXPECT_EQ(*five,*(Money*)(sum->augend));
+    EXPECT_EQ(*five,*(Money*)(sum->addend));
     
     delete five;
     delete result;
@@ -167,8 +167,8 @@ TEST(MoneyTest,MixedAddition)
 {
     Money* ten = Money::dollar(10);
     
-    Money* fiveBucks = Money::dollar(5);
-    Money* tenFrancs = Money::franc(10);
+    Expression* fiveBucks = Money::dollar(5);
+    Expression* tenFrancs = Money::franc(10);
     
     Bank bank;
     bank.addRate("CHF","USD",2);

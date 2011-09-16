@@ -13,8 +13,8 @@
 
 Sum::Sum(Expression* augend,Expression* addend)
 {
-    this->augend = new Money(augend->amount,augend->currency);
-    this->addend = new Money(addend->amount,addend->currency);
+    this->augend = augend->duplicate();
+    this->addend = addend->duplicate();
 }
 
 
@@ -36,4 +36,15 @@ Sum::reduce(Bank* bank,std::string to)
     delete addend_reduce;
     
     return new Money(amount,to);
+}
+
+Expression*
+Sum::duplicate()
+{
+    return new Sum(this->augend,this->addend);
+}
+Expression*
+Sum::plus(Expression* addend)
+{
+    return NULL;
 }

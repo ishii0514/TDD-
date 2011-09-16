@@ -25,7 +25,7 @@ public:
         return (this->amount == money.amount) && (this->currency == money.currency);
     }
     
-    virtual Money* times(int multiplier);
+    Expression* times(int multiplier);
     
     std::string getCurrency();
     
@@ -33,10 +33,13 @@ public:
     static Money* franc(int amount);
     
     Expression*
-    plus(Money* added);
+    plus(Expression* addend);
     
     Money*
     reduce(Bank* bank,std::string to);
+    
+    Expression*
+    duplicate();
         
     int amount;
     std::string currency;

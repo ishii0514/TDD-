@@ -17,6 +17,13 @@ class Expression
 public:
     virtual Money*
     reduce(Bank* bank, std::string to) =0;
+    
+    virtual Expression*
+    duplicate()=0;
+    
+    virtual Expression*
+    plus(Expression* addend)=0;
+    
 };
 
 #endif
