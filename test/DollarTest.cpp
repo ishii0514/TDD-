@@ -95,7 +95,7 @@ TEST(MoneyTest, SimpleAddition) {
     delete sum;
     delete reduced;
 }
-TEST(MoneyTest, PlusReturnSum) {
+TEST(ExpressionTest, PlusReturnSum) {
     Money* five = Money::dollar(5);
     Expression* result = five->plus(five);
     Sum* sum = (Sum*)result;
@@ -107,7 +107,7 @@ TEST(MoneyTest, PlusReturnSum) {
     
 }
 
-TEST(MoneyTest, ReduceSum) {
+TEST(ExpressionTest, ReduceSum) {
     Money* three = Money::dollar(3);
     Money* four = Money::dollar(4);
     Money* seven = Money::dollar(7);
@@ -129,7 +129,7 @@ TEST(MoneyTest, ReduceSum) {
     delete result;
     
 }
-TEST(MoneyTest, ReduceMoney) {
+TEST(ExpressionTest, ReduceMoney) {
     Money* one =Money::dollar(1);
     
     Bank* bank = new Bank();
@@ -142,7 +142,7 @@ TEST(MoneyTest, ReduceMoney) {
     delete result;
                                  
 }
-TEST(MoneyTest, ReduceMoneyDifferentCurrency) {
+TEST(ExpressionTest, ReduceMoneyDifferentCurrency) {
     Money* two = Money::franc(2);
     Money* one = Money::dollar(1);
     
@@ -158,12 +158,12 @@ TEST(MoneyTest, ReduceMoneyDifferentCurrency) {
     delete result;
                                 
 }
-TEST(MoneyTest,IdentityRate)
+TEST(ExpressionTest,IdentityRate)
 {
     Bank bank;
     EXPECT_EQ(1,bank.rate("USD","USD"));
 }
-TEST(MoneyTest,MixedAddition)
+TEST(ExpressionTest,MixedAddition)
 {
     Money* ten = Money::dollar(10);
     
@@ -184,4 +184,50 @@ TEST(MoneyTest,MixedAddition)
     delete fiveBucks;
     delete tenFrancs;
 
+}
+TEST(ExpressionTest,SumPlusMoney)
+{
+    Money* fifteen = Money::dollar(15);
+    
+    Expression* fiveBucks = Money::dollar(5);
+    Expression* tenFrancs = Money::franc(10);
+    Bank bank;
+    bank.addRate("CHF","USD",2);
+    
+    Expression* sum = new Sum(fiveBucks,tenFrancs);
+    Expression* sum2nd = sum->plus(fiveBucks);
+    
+    Money* result = bank.reduce(sum2nd,"USD");
+    
+    EXPECT_EQ(*fifteen,*result);
+    
+    delete fifteen;
+    delete sum;
+    delete sum2nd;
+    delete result;
+    delete fiveBucks;
+    delete tenFrancs;
+}
+TEST(ExpressionTest,SumTimes)
+{
+    Money* d20 = Money::dollar(20);
+    
+    Expression* fiveBucks = Money::dollar(5);
+    Expression* tenFrancs = Money::franc(10);
+    Bank bank;
+    bank.addRate("CHF","USD",2);
+    
+    Expression* sum = new Sum(fiveBucks,tenFrancs);
+    Expression* sum2nd = sum->times(2);
+    
+    Money* result = bank.reduce(sum2nd,"USD");
+    
+    EXPECT_EQ(*d20,*result);
+    
+    delete d20;
+    delete sum;
+    delete sum2nd;
+    delete result;
+    delete fiveBucks;
+    delete tenFrancs;
 }

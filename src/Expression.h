@@ -24,6 +24,9 @@ public:
     virtual Expression*
     plus(Expression* addend)=0;
     
+    virtual Expression*
+    times(int multiplier) =0;
+    
 };
 
 #endif

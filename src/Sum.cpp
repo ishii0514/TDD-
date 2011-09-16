@@ -46,5 +46,18 @@ Sum::duplicate()
 Expression*
 Sum::plus(Expression* addend)
 {
-    return NULL;
+    return new Sum(this,addend);
+}
+
+Expression*
+Sum::times(int multiplier){
+    Expression* augendTimes = augend->times(multiplier);
+    Expression* addendTimes = addend->times(multiplier);
+    
+    Expression* sumTimes = new Sum(augendTimes,addendTimes);
+    
+    delete augendTimes;
+    delete addendTimes;
+    
+    return sumTimes;
 }
