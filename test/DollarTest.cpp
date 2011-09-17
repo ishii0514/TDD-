@@ -21,8 +21,8 @@ TEST(DollarTest, MultiPlication) {
     Money* cmp_ten = Money::dollar(10);
     Money* cmp_fifteen = Money::dollar(15);
     
-    EXPECT_EQ(*cmp_ten,*(Money*)ten);
-    EXPECT_EQ(*cmp_fifteen,*(Money*)fifteen);
+    EXPECT_EQ(*cmp_ten,*ten);
+    EXPECT_EQ(*cmp_fifteen,*fifteen);
     
     delete cmp_ten;
     delete cmp_fifteen;
@@ -98,9 +98,10 @@ TEST(MoneyTest, SimpleAddition) {
 TEST(ExpressionTest, PlusReturnSum) {
     Money* five = Money::dollar(5);
     Expression* result = five->plus(five);
-    Sum* sum = (Sum*)result;
-    EXPECT_EQ(*five,*(Money*)(sum->augend));
-    EXPECT_EQ(*five,*(Money*)(sum->addend));
+    Sum* sum = dynamic_cast<Sum*>(result);
+
+    EXPECT_EQ(*five,*(sum->augend));
+    EXPECT_EQ(*five,*(sum->addend));
     
     delete five;
     delete result;

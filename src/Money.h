@@ -20,9 +20,11 @@ public:
     Money(int amount,const std::string& currency);
     virtual ~Money(){}
     
-    bool operator==(const Money& money) const
+    bool operator==(const Expression& expression) const
     {
-        return (this->amount == money.amount) && (this->currency == money.currency);
+        //親クラスから比較も可能なようにExpressionで受ける
+        const Money* money =  dynamic_cast<const Money*>(&expression);
+        return (this->amount == money->amount) && (this->currency == money->currency);
     }
     
     Expression* times(int multiplier);
